@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
+
 
 namespace FinalCal
 {
@@ -14,6 +16,7 @@ namespace FinalCal
     {
         private enum BaseNum { DEC, OCT, HEX, BIN };
         private BaseNum currentBase = BaseNum.DEC;
+        private bool IsResult = false;
         public Form1()
         {
             InitializeComponent();
@@ -26,9 +29,10 @@ namespace FinalCal
 
         public void ClickNum(String number)
         {
-            if (CurrentVal.Text == "0")
+            if (CurrentVal.Text == "0" ||IsResult)
             {
                 CurrentVal.Text = number;
+                IsResult = false;
             }
             else
             {
@@ -40,9 +44,10 @@ namespace FinalCal
 
         public void ClickAlp(String alphabet)
         {
-            if (CurrentVal.Text == "0")
+            if (CurrentVal.Text == "0" ||IsResult)
             {
                 CurrentVal.Text = alphabet;
+                IsResult = false;
             }
             else
             {
@@ -235,28 +240,43 @@ namespace FinalCal
 
             else if (PreVal.Text.Contains("/"))
             {
-                String num1 = PreVal.Text.Replace("/", "");
-                String num2 = CurrentVal.Text;
+                if(CurrentVal.Text == "0" || PreVal.Text =="0")
+                {
+                    MessageBox.Show("0으로 나눌수 없습니다");
+                }
+                else
+                {
+                    String num1 = PreVal.Text.Replace("/", "");
+                    String num2 = CurrentVal.Text;
 
 
-                int result = Int32.Parse(num1) / Int32.Parse(num2);
-                PreVal.Text = num1 + "/" + num2 + "=";
-                CurrentVal.Text = result.ToString();
-                ChangeNo(int.Parse(CurrentVal.Text));
+                    int result = Int32.Parse(num1) / Int32.Parse(num2);
+                    PreVal.Text = num1 + "/" + num2 + "=";
+                    CurrentVal.Text = result.ToString();
+                    ChangeNo(int.Parse(CurrentVal.Text));
+                }
             }
             else if (PreVal.Text.Contains("%"))
             {
-                String num1 = PreVal.Text.Replace("%", "");
-                String num2 = CurrentVal.Text;
+                try
+                {
+                    String num1 = PreVal.Text.Replace("%", "");
+                    String num2 = CurrentVal.Text;
 
 
-                int result = Int32.Parse(num1) % Int32.Parse(num2);
-                PreVal.Text = num1 + "%" + num2 + "=";
-                CurrentVal.Text = result.ToString();
-                ChangeNo(int.Parse(CurrentVal.Text));
+                    int result = Int32.Parse(num1) % Int32.Parse(num2);
+                    PreVal.Text = num1 + "%" + num2 + "=";
+                    CurrentVal.Text = result.ToString();
+                    ChangeNo(int.Parse(CurrentVal.Text));
+                }
+                catch
+                {
+                    MessageBox.Show("0은 입력할 수 업습니다.");
+                    
+                }
             }
+            IsResult = true;
 
-            
 
         }
 
@@ -264,6 +284,7 @@ namespace FinalCal
         {
             CurrentVal.Text = "0";
             PreVal.Text = "0";
+            IsResult = false;
         }
 
         private void Btn_Erase_Click(object sender, EventArgs e)
@@ -288,28 +309,38 @@ namespace FinalCal
 
         private void Btn_Hex_Click(object sender, EventArgs e)
         {
+            int value = Convert.ToInt32(CurrentVal.Text, GetBaseValue());
             currentBase = BaseNum.HEX;
             ResetButton();
             Btn_A.Enabled = Btn_B.Enabled = Btn_C.Enabled = Btn_D.Enabled = Btn_E.Enabled = Btn_F.Enabled = true;
+            //int result = Int32.Parse(CurrentVal.Text);
+            CurrentVal.Text = Convert.ToString(value, 16);
         }
 
         private void Btn_Dec_Click(object sender, EventArgs e)
         {
+            int value = Convert.ToInt32(CurrentVal.Text, GetBaseValue());
             currentBase = BaseNum.DEC;
             ResetButton(); 
             Btn_A.Enabled = Btn_B.Enabled = Btn_C.Enabled = Btn_D.Enabled = Btn_E.Enabled = Btn_F.Enabled = false;
+            //int result = Int32.Parse(CurrentVal.Text);
+            CurrentVal.Text = Convert.ToString(value, 10);
         }
 
         private void Btn_Oct_Click(object sender, EventArgs e)
         {
+            int value = Convert.ToInt32(CurrentVal.Text, GetBaseValue());
             currentBase = BaseNum.OCT;
             ResetButton();
             Btn_A.Enabled = Btn_B.Enabled = Btn_C.Enabled = Btn_D.Enabled = Btn_E.Enabled = Btn_F.Enabled = false;
             Btn_8.Enabled = Btn_9.Enabled = false;
+            
+            CurrentVal.Text = Convert.ToString(value, 8);
         }
 
         private void Btn_Bin_Click(object sender, EventArgs e)
         {
+            int value = Convert.ToInt32(CurrentVal.Text, GetBaseValue());
             currentBase = BaseNum.BIN;
             ResetButton();
             Btn_A.Enabled = Btn_B.Enabled = Btn_C.Enabled = Btn_D.Enabled = Btn_E.Enabled = Btn_F.Enabled = false;
@@ -317,6 +348,7 @@ namespace FinalCal
             {
                 Controls["Btn_" + i].Enabled = false;
             }
+            CurrentVal.Text = Convert.ToString(value, 2);
         }
 
         private void Btn_ShiftLeft_Click(object sender, EventArgs e)
