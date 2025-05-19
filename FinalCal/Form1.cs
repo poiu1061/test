@@ -179,16 +179,37 @@ namespace FinalCal
         {
             if (PreVal.Text.Contains("+"))
             {
-
                 String num1 = PreVal.Text.Replace("+", "");
                 String num2 = CurrentVal.Text;
 
+                int parsedNum1 = Convert.ToInt32(num1, GetBaseValue());
+                int parsedNum2 = Convert.ToInt32(num2, GetBaseValue());
 
-                int result = Int32.Parse(num1) + Int32.Parse(num2);
+                int result = parsedNum1 + parsedNum2;
                 PreVal.Text = num1 + "+" + num2 + "=";
                 CurrentVal.Text = result.ToString();
                 ChangeNo(int.Parse(CurrentVal.Text));
+               
+                if (currentBase == BaseNum.BIN)
+                {
+                    CurrentVal.Text = Convert.ToString(result, 2);
+                }
+                else if (currentBase == BaseNum.OCT)
+                {
+                    CurrentVal.Text = Convert.ToString(result, 8);
+                }
+                else if (currentBase == BaseNum.HEX)
+                {
+                    CurrentVal.Text = Convert.ToString(result, 16);
+                }
+                else
+                {
+                    CurrentVal.Text = result.ToString();
+                } 
+
+                ChangeNo(result);
             }
+        
             else if (PreVal.Text.Contains("-"))
             {
                 String num1 = PreVal.Text.Replace("-", "");
@@ -234,6 +255,9 @@ namespace FinalCal
                 CurrentVal.Text = result.ToString();
                 ChangeNo(int.Parse(CurrentVal.Text));
             }
+
+            
+
         }
 
         private void Btn_CE_Click(object sender, EventArgs e)
@@ -244,7 +268,7 @@ namespace FinalCal
 
         private void Btn_Erase_Click(object sender, EventArgs e)
         {
-            if (CurrentVal.Text.Length >= 1)
+            if (CurrentVal.Text.Length > 1)
             {
                 CurrentVal.Text= CurrentVal.Text.Substring(0, CurrentVal.Text.Length-1);
             }
@@ -265,47 +289,30 @@ namespace FinalCal
         private void Btn_Hex_Click(object sender, EventArgs e)
         {
             currentBase = BaseNum.HEX;
-            Btn_A.Enabled = true;
-            Btn_B.Enabled = true;
-            Btn_C.Enabled = true;
-            Btn_D.Enabled = true;
-            Btn_E.Enabled = true;
-            Btn_F.Enabled = true;
+            ResetButton();
+            Btn_A.Enabled = Btn_B.Enabled = Btn_C.Enabled = Btn_D.Enabled = Btn_E.Enabled = Btn_F.Enabled = true;
         }
 
         private void Btn_Dec_Click(object sender, EventArgs e)
         {
             currentBase = BaseNum.DEC;
-            Btn_A.Enabled = false;
-            Btn_B.Enabled = false;
-            Btn_C.Enabled = false;
-            Btn_D.Enabled = false;
-            Btn_E.Enabled = false;
-            Btn_F.Enabled = false;
+            ResetButton(); 
+            Btn_A.Enabled = Btn_B.Enabled = Btn_C.Enabled = Btn_D.Enabled = Btn_E.Enabled = Btn_F.Enabled = false;
         }
 
         private void Btn_Oct_Click(object sender, EventArgs e)
         {
             currentBase = BaseNum.OCT;
-            Btn_A.Enabled = false;
-            Btn_B.Enabled = false;
-            Btn_C.Enabled = false;
-            Btn_D.Enabled = false;
-            Btn_E.Enabled = false;
-            Btn_F.Enabled = false;
-            Btn_8.Enabled = false;
-            Btn_9.Enabled = false;
+            ResetButton();
+            Btn_A.Enabled = Btn_B.Enabled = Btn_C.Enabled = Btn_D.Enabled = Btn_E.Enabled = Btn_F.Enabled = false;
+            Btn_8.Enabled = Btn_9.Enabled = false;
         }
 
         private void Btn_Bin_Click(object sender, EventArgs e)
         {
             currentBase = BaseNum.BIN;
-            Btn_A.Enabled = false;
-            Btn_B.Enabled = false;
-            Btn_C.Enabled = false;
-            Btn_D.Enabled = false;
-            Btn_E.Enabled = false;
-            Btn_F.Enabled = false;
+            ResetButton();
+            Btn_A.Enabled = Btn_B.Enabled = Btn_C.Enabled = Btn_D.Enabled = Btn_E.Enabled = Btn_F.Enabled = false;
             for (int i = 2; i < 10; i++)
             {
                 Controls["Btn_" + i].Enabled = false;
@@ -316,11 +323,11 @@ namespace FinalCal
         {
             try
             {
-                int value = Convert.ToInt32(CurrentVal.Text);
+                int value = Convert.ToInt32(CurrentVal.Text,2);
                 int result = value << 1;
 
                 PreVal.Text = $"{value} << 1 =";
-                CurrentVal.Text = result.ToString();
+                CurrentVal.Text = Convert.ToString(result,2);
 
                 ChangeNo(result);
             }
@@ -334,11 +341,11 @@ namespace FinalCal
         {
             try
             {
-                int value = Convert.ToInt32(CurrentVal.Text);
+                int value = Convert.ToInt32(CurrentVal.Text,2);
                 int result = value >> 1;
 
                 PreVal.Text = $"{value} >> 1 =";
-                CurrentVal.Text = result.ToString();
+                CurrentVal.Text = Convert.ToString(result, 2);
 
                 ChangeNo(result);
             }
@@ -356,6 +363,18 @@ namespace FinalCal
                 case BaseNum.OCT: return 8;
                 case BaseNum.HEX: return 16;
                 default: return 10;
+            }
+        }
+
+
+        private void ResetButton()
+        {
+
+            Btn_A.Enabled = Btn_B.Enabled = Btn_C.Enabled = Btn_D.Enabled = Btn_E.Enabled = Btn_F.Enabled = false;
+
+            for (int i = 0; i <= 9; i++)
+            {
+                Controls["Btn_" + i].Enabled = true;
             }
         }
 

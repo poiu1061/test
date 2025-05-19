@@ -73,9 +73,10 @@
             // 
             // Btn_1
             // 
-            this.Btn_1.Location = new System.Drawing.Point(102, 554);
+            this.Btn_1.Location = new System.Drawing.Point(71, 369);
+            this.Btn_1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_1.Name = "Btn_1";
-            this.Btn_1.Size = new System.Drawing.Size(75, 33);
+            this.Btn_1.Size = new System.Drawing.Size(52, 22);
             this.Btn_1.TabIndex = 0;
             this.Btn_1.Text = "1";
             this.Btn_1.UseVisualStyleBackColor = true;
@@ -83,9 +84,10 @@
             // 
             // Btn_2
             // 
-            this.Btn_2.Location = new System.Drawing.Point(183, 554);
+            this.Btn_2.Location = new System.Drawing.Point(128, 369);
+            this.Btn_2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_2.Name = "Btn_2";
-            this.Btn_2.Size = new System.Drawing.Size(75, 33);
+            this.Btn_2.Size = new System.Drawing.Size(52, 22);
             this.Btn_2.TabIndex = 2;
             this.Btn_2.Text = "2";
             this.Btn_2.UseVisualStyleBackColor = true;
@@ -93,9 +95,10 @@
             // 
             // Btn_3
             // 
-            this.Btn_3.Location = new System.Drawing.Point(264, 554);
+            this.Btn_3.Location = new System.Drawing.Point(185, 369);
+            this.Btn_3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_3.Name = "Btn_3";
-            this.Btn_3.Size = new System.Drawing.Size(75, 33);
+            this.Btn_3.Size = new System.Drawing.Size(52, 22);
             this.Btn_3.TabIndex = 2;
             this.Btn_3.Text = "3";
             this.Btn_3.UseVisualStyleBackColor = true;
@@ -103,9 +106,10 @@
             // 
             // Btn_4
             // 
-            this.Btn_4.Location = new System.Drawing.Point(102, 494);
+            this.Btn_4.Location = new System.Drawing.Point(71, 329);
+            this.Btn_4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_4.Name = "Btn_4";
-            this.Btn_4.Size = new System.Drawing.Size(75, 33);
+            this.Btn_4.Size = new System.Drawing.Size(52, 22);
             this.Btn_4.TabIndex = 3;
             this.Btn_4.Text = "4";
             this.Btn_4.UseVisualStyleBackColor = true;
@@ -113,9 +117,10 @@
             // 
             // Btn_5
             // 
-            this.Btn_5.Location = new System.Drawing.Point(183, 494);
+            this.Btn_5.Location = new System.Drawing.Point(128, 329);
+            this.Btn_5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_5.Name = "Btn_5";
-            this.Btn_5.Size = new System.Drawing.Size(75, 33);
+            this.Btn_5.Size = new System.Drawing.Size(52, 22);
             this.Btn_5.TabIndex = 4;
             this.Btn_5.Text = "5";
             this.Btn_5.UseVisualStyleBackColor = true;
@@ -123,9 +128,10 @@
             // 
             // Btn_6
             // 
-            this.Btn_6.Location = new System.Drawing.Point(264, 494);
+            this.Btn_6.Location = new System.Drawing.Point(185, 329);
+            this.Btn_6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_6.Name = "Btn_6";
-            this.Btn_6.Size = new System.Drawing.Size(75, 33);
+            this.Btn_6.Size = new System.Drawing.Size(52, 22);
             this.Btn_6.TabIndex = 5;
             this.Btn_6.Text = "6";
             this.Btn_6.UseVisualStyleBackColor = true;
@@ -133,9 +139,10 @@
             // 
             // Btn_7
             // 
-            this.Btn_7.Location = new System.Drawing.Point(102, 431);
+            this.Btn_7.Location = new System.Drawing.Point(71, 287);
+            this.Btn_7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_7.Name = "Btn_7";
-            this.Btn_7.Size = new System.Drawing.Size(75, 33);
+            this.Btn_7.Size = new System.Drawing.Size(52, 22);
             this.Btn_7.TabIndex = 8;
             this.Btn_7.Text = "7";
             this.Btn_7.UseVisualStyleBackColor = true;
@@ -143,9 +150,10 @@
             // 
             // Btn_8
             // 
-            this.Btn_8.Location = new System.Drawing.Point(183, 431);
+            this.Btn_8.Location = new System.Drawing.Point(128, 287);
+            this.Btn_8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_8.Name = "Btn_8";
-            this.Btn_8.Size = new System.Drawing.Size(75, 33);
+            this.Btn_8.Size = new System.Drawing.Size(52, 22);
             this.Btn_8.TabIndex = 7;
             this.Btn_8.Text = "8";
             this.Btn_8.UseVisualStyleBackColor = true;
@@ -153,9 +161,10 @@
             // 
             // Btn_9
             // 
-            this.Btn_9.Location = new System.Drawing.Point(264, 431);
+            this.Btn_9.Location = new System.Drawing.Point(185, 287);
+            this.Btn_9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_9.Name = "Btn_9";
-            this.Btn_9.Size = new System.Drawing.Size(75, 33);
+            this.Btn_9.Size = new System.Drawing.Size(52, 22);
             this.Btn_9.TabIndex = 6;
             this.Btn_9.Text = "9";
             this.Btn_9.UseVisualStyleBackColor = true;
@@ -163,18 +172,20 @@
             // 
             // Btn_ChangePM
             // 
-            this.Btn_ChangePM.Location = new System.Drawing.Point(102, 616);
+            this.Btn_ChangePM.Location = new System.Drawing.Point(71, 411);
+            this.Btn_ChangePM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_ChangePM.Name = "Btn_ChangePM";
-            this.Btn_ChangePM.Size = new System.Drawing.Size(75, 33);
+            this.Btn_ChangePM.Size = new System.Drawing.Size(52, 22);
             this.Btn_ChangePM.TabIndex = 11;
             this.Btn_ChangePM.Text = "+/-";
             this.Btn_ChangePM.UseVisualStyleBackColor = true;
             // 
             // Btn_0
             // 
-            this.Btn_0.Location = new System.Drawing.Point(183, 616);
+            this.Btn_0.Location = new System.Drawing.Point(128, 411);
+            this.Btn_0.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_0.Name = "Btn_0";
-            this.Btn_0.Size = new System.Drawing.Size(75, 33);
+            this.Btn_0.Size = new System.Drawing.Size(52, 22);
             this.Btn_0.TabIndex = 10;
             this.Btn_0.Text = "0";
             this.Btn_0.UseVisualStyleBackColor = true;
@@ -182,18 +193,21 @@
             // 
             // Btn_Dot
             // 
-            this.Btn_Dot.Location = new System.Drawing.Point(264, 616);
+            this.Btn_Dot.Location = new System.Drawing.Point(185, 411);
+            this.Btn_Dot.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_Dot.Name = "Btn_Dot";
-            this.Btn_Dot.Size = new System.Drawing.Size(75, 33);
+            this.Btn_Dot.Size = new System.Drawing.Size(52, 22);
             this.Btn_Dot.TabIndex = 9;
             this.Btn_Dot.Text = ".";
             this.Btn_Dot.UseVisualStyleBackColor = true;
             // 
             // Btn_F
             // 
-            this.Btn_F.Location = new System.Drawing.Point(21, 616);
+            this.Btn_F.Enabled = false;
+            this.Btn_F.Location = new System.Drawing.Point(15, 411);
+            this.Btn_F.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_F.Name = "Btn_F";
-            this.Btn_F.Size = new System.Drawing.Size(75, 33);
+            this.Btn_F.Size = new System.Drawing.Size(52, 22);
             this.Btn_F.TabIndex = 15;
             this.Btn_F.Text = "F";
             this.Btn_F.UseVisualStyleBackColor = true;
@@ -201,9 +215,11 @@
             // 
             // Btn_C
             // 
-            this.Btn_C.Location = new System.Drawing.Point(21, 431);
+            this.Btn_C.Enabled = false;
+            this.Btn_C.Location = new System.Drawing.Point(15, 287);
+            this.Btn_C.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_C.Name = "Btn_C";
-            this.Btn_C.Size = new System.Drawing.Size(75, 33);
+            this.Btn_C.Size = new System.Drawing.Size(52, 22);
             this.Btn_C.TabIndex = 14;
             this.Btn_C.Text = "C";
             this.Btn_C.UseVisualStyleBackColor = true;
@@ -211,9 +227,11 @@
             // 
             // Btn_D
             // 
-            this.Btn_D.Location = new System.Drawing.Point(21, 494);
+            this.Btn_D.Enabled = false;
+            this.Btn_D.Location = new System.Drawing.Point(15, 329);
+            this.Btn_D.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_D.Name = "Btn_D";
-            this.Btn_D.Size = new System.Drawing.Size(75, 33);
+            this.Btn_D.Size = new System.Drawing.Size(52, 22);
             this.Btn_D.TabIndex = 13;
             this.Btn_D.Text = "D";
             this.Btn_D.UseVisualStyleBackColor = true;
@@ -221,9 +239,11 @@
             // 
             // Btn_E
             // 
-            this.Btn_E.Location = new System.Drawing.Point(21, 554);
+            this.Btn_E.Enabled = false;
+            this.Btn_E.Location = new System.Drawing.Point(15, 369);
+            this.Btn_E.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_E.Name = "Btn_E";
-            this.Btn_E.Size = new System.Drawing.Size(75, 33);
+            this.Btn_E.Size = new System.Drawing.Size(52, 22);
             this.Btn_E.TabIndex = 12;
             this.Btn_E.Text = "E";
             this.Btn_E.UseVisualStyleBackColor = true;
@@ -231,9 +251,11 @@
             // 
             // Btn_B
             // 
-            this.Btn_B.Location = new System.Drawing.Point(21, 362);
+            this.Btn_B.Enabled = false;
+            this.Btn_B.Location = new System.Drawing.Point(15, 241);
+            this.Btn_B.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_B.Name = "Btn_B";
-            this.Btn_B.Size = new System.Drawing.Size(75, 33);
+            this.Btn_B.Size = new System.Drawing.Size(52, 22);
             this.Btn_B.TabIndex = 19;
             this.Btn_B.Text = "B";
             this.Btn_B.UseVisualStyleBackColor = true;
@@ -241,27 +263,30 @@
             // 
             // Btn_ParLeft
             // 
-            this.Btn_ParLeft.Location = new System.Drawing.Point(102, 362);
+            this.Btn_ParLeft.Location = new System.Drawing.Point(71, 241);
+            this.Btn_ParLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_ParLeft.Name = "Btn_ParLeft";
-            this.Btn_ParLeft.Size = new System.Drawing.Size(75, 33);
+            this.Btn_ParLeft.Size = new System.Drawing.Size(52, 22);
             this.Btn_ParLeft.TabIndex = 18;
             this.Btn_ParLeft.Text = "(";
             this.Btn_ParLeft.UseVisualStyleBackColor = true;
             // 
             // Btn_parentRight
             // 
-            this.Btn_parentRight.Location = new System.Drawing.Point(183, 362);
+            this.Btn_parentRight.Location = new System.Drawing.Point(128, 241);
+            this.Btn_parentRight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_parentRight.Name = "Btn_parentRight";
-            this.Btn_parentRight.Size = new System.Drawing.Size(75, 33);
+            this.Btn_parentRight.Size = new System.Drawing.Size(52, 22);
             this.Btn_parentRight.TabIndex = 17;
             this.Btn_parentRight.Text = ")";
             this.Btn_parentRight.UseVisualStyleBackColor = true;
             // 
             // Btn_Rest
             // 
-            this.Btn_Rest.Location = new System.Drawing.Point(264, 362);
+            this.Btn_Rest.Location = new System.Drawing.Point(185, 241);
+            this.Btn_Rest.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_Rest.Name = "Btn_Rest";
-            this.Btn_Rest.Size = new System.Drawing.Size(75, 33);
+            this.Btn_Rest.Size = new System.Drawing.Size(52, 22);
             this.Btn_Rest.TabIndex = 16;
             this.Btn_Rest.Text = "%";
             this.Btn_Rest.UseVisualStyleBackColor = true;
@@ -269,9 +294,11 @@
             // 
             // Btn_A
             // 
-            this.Btn_A.Location = new System.Drawing.Point(21, 291);
+            this.Btn_A.Enabled = false;
+            this.Btn_A.Location = new System.Drawing.Point(15, 194);
+            this.Btn_A.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_A.Name = "Btn_A";
-            this.Btn_A.Size = new System.Drawing.Size(75, 33);
+            this.Btn_A.Size = new System.Drawing.Size(52, 22);
             this.Btn_A.TabIndex = 23;
             this.Btn_A.Text = "A";
             this.Btn_A.UseVisualStyleBackColor = true;
@@ -279,9 +306,10 @@
             // 
             // Btn_ShiftLeft
             // 
-            this.Btn_ShiftLeft.Location = new System.Drawing.Point(102, 291);
+            this.Btn_ShiftLeft.Location = new System.Drawing.Point(71, 194);
+            this.Btn_ShiftLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_ShiftLeft.Name = "Btn_ShiftLeft";
-            this.Btn_ShiftLeft.Size = new System.Drawing.Size(75, 33);
+            this.Btn_ShiftLeft.Size = new System.Drawing.Size(52, 22);
             this.Btn_ShiftLeft.TabIndex = 22;
             this.Btn_ShiftLeft.Text = "<<";
             this.Btn_ShiftLeft.UseVisualStyleBackColor = true;
@@ -289,9 +317,10 @@
             // 
             // Btn_ShiftRight
             // 
-            this.Btn_ShiftRight.Location = new System.Drawing.Point(183, 291);
+            this.Btn_ShiftRight.Location = new System.Drawing.Point(128, 194);
+            this.Btn_ShiftRight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_ShiftRight.Name = "Btn_ShiftRight";
-            this.Btn_ShiftRight.Size = new System.Drawing.Size(75, 33);
+            this.Btn_ShiftRight.Size = new System.Drawing.Size(52, 22);
             this.Btn_ShiftRight.TabIndex = 21;
             this.Btn_ShiftRight.Text = ">>";
             this.Btn_ShiftRight.UseVisualStyleBackColor = true;
@@ -299,9 +328,10 @@
             // 
             // Btn_CE
             // 
-            this.Btn_CE.Location = new System.Drawing.Point(264, 291);
+            this.Btn_CE.Location = new System.Drawing.Point(185, 194);
+            this.Btn_CE.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_CE.Name = "Btn_CE";
-            this.Btn_CE.Size = new System.Drawing.Size(75, 33);
+            this.Btn_CE.Size = new System.Drawing.Size(52, 22);
             this.Btn_CE.TabIndex = 20;
             this.Btn_CE.Text = "CE";
             this.Btn_CE.UseVisualStyleBackColor = true;
@@ -309,9 +339,10 @@
             // 
             // Btn_Erase
             // 
-            this.Btn_Erase.Location = new System.Drawing.Point(345, 291);
+            this.Btn_Erase.Location = new System.Drawing.Point(242, 194);
+            this.Btn_Erase.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_Erase.Name = "Btn_Erase";
-            this.Btn_Erase.Size = new System.Drawing.Size(75, 33);
+            this.Btn_Erase.Size = new System.Drawing.Size(52, 22);
             this.Btn_Erase.TabIndex = 29;
             this.Btn_Erase.Text = "<X";
             this.Btn_Erase.UseVisualStyleBackColor = true;
@@ -319,9 +350,10 @@
             // 
             // btn_Div
             // 
-            this.btn_Div.Location = new System.Drawing.Point(345, 362);
+            this.btn_Div.Location = new System.Drawing.Point(242, 241);
+            this.btn_Div.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Div.Name = "btn_Div";
-            this.btn_Div.Size = new System.Drawing.Size(75, 33);
+            this.btn_Div.Size = new System.Drawing.Size(52, 22);
             this.btn_Div.TabIndex = 28;
             this.btn_Div.Text = "/";
             this.btn_Div.UseVisualStyleBackColor = true;
@@ -329,9 +361,10 @@
             // 
             // btn_Equal
             // 
-            this.btn_Equal.Location = new System.Drawing.Point(345, 616);
+            this.btn_Equal.Location = new System.Drawing.Point(242, 411);
+            this.btn_Equal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Equal.Name = "btn_Equal";
-            this.btn_Equal.Size = new System.Drawing.Size(75, 33);
+            this.btn_Equal.Size = new System.Drawing.Size(52, 22);
             this.btn_Equal.TabIndex = 27;
             this.btn_Equal.Text = "=";
             this.btn_Equal.UseVisualStyleBackColor = true;
@@ -339,9 +372,10 @@
             // 
             // btn_Mul
             // 
-            this.btn_Mul.Location = new System.Drawing.Point(345, 431);
+            this.btn_Mul.Location = new System.Drawing.Point(242, 287);
+            this.btn_Mul.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Mul.Name = "btn_Mul";
-            this.btn_Mul.Size = new System.Drawing.Size(75, 33);
+            this.btn_Mul.Size = new System.Drawing.Size(52, 22);
             this.btn_Mul.TabIndex = 26;
             this.btn_Mul.Text = "*";
             this.btn_Mul.UseVisualStyleBackColor = true;
@@ -349,9 +383,10 @@
             // 
             // btn_Minus
             // 
-            this.btn_Minus.Location = new System.Drawing.Point(345, 494);
+            this.btn_Minus.Location = new System.Drawing.Point(242, 329);
+            this.btn_Minus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Minus.Name = "btn_Minus";
-            this.btn_Minus.Size = new System.Drawing.Size(75, 33);
+            this.btn_Minus.Size = new System.Drawing.Size(52, 22);
             this.btn_Minus.TabIndex = 25;
             this.btn_Minus.Text = "-";
             this.btn_Minus.UseVisualStyleBackColor = true;
@@ -359,9 +394,10 @@
             // 
             // btn_Plus
             // 
-            this.btn_Plus.Location = new System.Drawing.Point(345, 554);
+            this.btn_Plus.Location = new System.Drawing.Point(242, 369);
+            this.btn_Plus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn_Plus.Name = "btn_Plus";
-            this.btn_Plus.Size = new System.Drawing.Size(75, 33);
+            this.btn_Plus.Size = new System.Drawing.Size(52, 22);
             this.btn_Plus.TabIndex = 24;
             this.btn_Plus.Text = "+";
             this.btn_Plus.UseVisualStyleBackColor = true;
@@ -372,8 +408,9 @@
             this.PreVal.Dock = System.Windows.Forms.DockStyle.Top;
             this.PreVal.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.PreVal.Location = new System.Drawing.Point(0, 0);
+            this.PreVal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.PreVal.Name = "PreVal";
-            this.PreVal.Size = new System.Drawing.Size(451, 51);
+            this.PreVal.Size = new System.Drawing.Size(316, 34);
             this.PreVal.TabIndex = 30;
             this.PreVal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -381,18 +418,20 @@
             // 
             this.CurrentVal.Dock = System.Windows.Forms.DockStyle.Top;
             this.CurrentVal.Font = new System.Drawing.Font("굴림", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.CurrentVal.Location = new System.Drawing.Point(0, 51);
+            this.CurrentVal.Location = new System.Drawing.Point(0, 34);
+            this.CurrentVal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CurrentVal.Name = "CurrentVal";
-            this.CurrentVal.Size = new System.Drawing.Size(451, 39);
+            this.CurrentVal.Size = new System.Drawing.Size(316, 26);
             this.CurrentVal.TabIndex = 31;
             this.CurrentVal.Text = "0";
             this.CurrentVal.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // Btn_Hex
             // 
-            this.Btn_Hex.Location = new System.Drawing.Point(21, 126);
+            this.Btn_Hex.Location = new System.Drawing.Point(15, 84);
+            this.Btn_Hex.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_Hex.Name = "Btn_Hex";
-            this.Btn_Hex.Size = new System.Drawing.Size(75, 37);
+            this.Btn_Hex.Size = new System.Drawing.Size(52, 25);
             this.Btn_Hex.TabIndex = 32;
             this.Btn_Hex.Text = "Hex";
             this.Btn_Hex.UseVisualStyleBackColor = true;
@@ -400,9 +439,10 @@
             // 
             // Btn_Dec
             // 
-            this.Btn_Dec.Location = new System.Drawing.Point(21, 169);
+            this.Btn_Dec.Location = new System.Drawing.Point(15, 113);
+            this.Btn_Dec.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_Dec.Name = "Btn_Dec";
-            this.Btn_Dec.Size = new System.Drawing.Size(75, 37);
+            this.Btn_Dec.Size = new System.Drawing.Size(52, 25);
             this.Btn_Dec.TabIndex = 33;
             this.Btn_Dec.Text = "Dec";
             this.Btn_Dec.UseVisualStyleBackColor = true;
@@ -410,9 +450,10 @@
             // 
             // Btn_Oct
             // 
-            this.Btn_Oct.Location = new System.Drawing.Point(21, 212);
+            this.Btn_Oct.Location = new System.Drawing.Point(15, 141);
+            this.Btn_Oct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_Oct.Name = "Btn_Oct";
-            this.Btn_Oct.Size = new System.Drawing.Size(75, 32);
+            this.Btn_Oct.Size = new System.Drawing.Size(52, 21);
             this.Btn_Oct.TabIndex = 34;
             this.Btn_Oct.Text = "Oct";
             this.Btn_Oct.UseVisualStyleBackColor = true;
@@ -420,9 +461,10 @@
             // 
             // Btn_Bin
             // 
-            this.Btn_Bin.Location = new System.Drawing.Point(21, 250);
+            this.Btn_Bin.Location = new System.Drawing.Point(15, 167);
+            this.Btn_Bin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Btn_Bin.Name = "Btn_Bin";
-            this.Btn_Bin.Size = new System.Drawing.Size(75, 35);
+            this.Btn_Bin.Size = new System.Drawing.Size(52, 23);
             this.Btn_Bin.TabIndex = 35;
             this.Btn_Bin.Text = "Bin";
             this.Btn_Bin.UseVisualStyleBackColor = true;
@@ -431,44 +473,48 @@
             // HexNum
             // 
             this.HexNum.AutoSize = true;
-            this.HexNum.Location = new System.Drawing.Point(102, 131);
+            this.HexNum.Location = new System.Drawing.Point(71, 87);
+            this.HexNum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.HexNum.Name = "HexNum";
-            this.HexNum.Size = new System.Drawing.Size(18, 18);
+            this.HexNum.Size = new System.Drawing.Size(11, 12);
             this.HexNum.TabIndex = 36;
             this.HexNum.Text = "0";
             // 
             // DecNum
             // 
             this.DecNum.AutoSize = true;
-            this.DecNum.Location = new System.Drawing.Point(102, 174);
+            this.DecNum.Location = new System.Drawing.Point(71, 116);
+            this.DecNum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.DecNum.Name = "DecNum";
-            this.DecNum.Size = new System.Drawing.Size(18, 18);
+            this.DecNum.Size = new System.Drawing.Size(11, 12);
             this.DecNum.TabIndex = 37;
             this.DecNum.Text = "0";
             // 
             // OctNum
             // 
             this.OctNum.AutoSize = true;
-            this.OctNum.Location = new System.Drawing.Point(102, 217);
+            this.OctNum.Location = new System.Drawing.Point(71, 145);
+            this.OctNum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.OctNum.Name = "OctNum";
-            this.OctNum.Size = new System.Drawing.Size(18, 18);
+            this.OctNum.Size = new System.Drawing.Size(11, 12);
             this.OctNum.TabIndex = 38;
             this.OctNum.Text = "0";
             // 
             // BinNum
             // 
             this.BinNum.AutoSize = true;
-            this.BinNum.Location = new System.Drawing.Point(102, 250);
+            this.BinNum.Location = new System.Drawing.Point(71, 167);
+            this.BinNum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.BinNum.Name = "BinNum";
-            this.BinNum.Size = new System.Drawing.Size(18, 18);
+            this.BinNum.Size = new System.Drawing.Size(11, 12);
             this.BinNum.TabIndex = 39;
             this.BinNum.Text = "0";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 686);
+            this.ClientSize = new System.Drawing.Size(316, 457);
             this.Controls.Add(this.BinNum);
             this.Controls.Add(this.OctNum);
             this.Controls.Add(this.DecNum);
@@ -509,6 +555,7 @@
             this.Controls.Add(this.Btn_3);
             this.Controls.Add(this.Btn_2);
             this.Controls.Add(this.Btn_1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
