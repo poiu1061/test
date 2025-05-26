@@ -45,6 +45,7 @@
             // 
             // Send
             // 
+            this.Send.Enabled = false;
             this.Send.Location = new System.Drawing.Point(348, 437);
             this.Send.Name = "Send";
             this.Send.Size = new System.Drawing.Size(75, 28);

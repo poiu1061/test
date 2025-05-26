@@ -18,6 +18,7 @@ namespace Chatting
         TcpClient client;
         NetworkStream stream;
         Thread receiveThread;
+        
         public Form1()
         {
             InitializeComponent();
@@ -43,10 +44,13 @@ namespace Chatting
             receiveThread.Start();
 
             Chat_log.Items.Add("서버에 연결됨.");
+           
+            Send.Enabled = true;
         }
 
         private void Send_Click(object sender, EventArgs e)
         {
+
             string message = textMessage.Text;
 
             byte[] data = Encoding.UTF8.GetBytes(message);
