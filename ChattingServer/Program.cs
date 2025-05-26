@@ -1,98 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
+﻿// Server.cs
+using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading;
 
-namespace ChatServer
+class Server
 {
-    class Program
+    static void Main()
     {
-        static Dictionary<TcpClient, string> clients = new Dictionary<TcpClient, string>();
-        static object lockObj = new object();
-        static void Main(string[] args)
+        TcpListener server = new TcpListener(IPAddress.Any, 8080); //포트 8080열고 클라이언트 올 때 까지 대기
+        server.Start();
+        Console.WriteLine("서버 시작됨. 클라이언트 접속 대기 중...");
 
+        TcpClient client = server.AcceptTcpClient();//클라이언트 오면 접속 허용
+        Console.WriteLine("클라이언트 접속됨.");
+
+        NetworkStream stream = client.GetStream(); //client와의 데이터 주고받을 통로 생성
+        byte[] buffer = new byte[1024];
+
+        while (true)
         {
-            TcpListener server = new TcpListener(IPAddress.Any, 8080);
-            server.Start();
-            Console.WriteLine("서버 시작됨. 클라이언트 접속 대기 중...");
+            //stream.read 데이터 받기 배열 buffer에 데이터를 저장,인덱스 0부터 버퍼의 길이만큼
+            int bytes = stream.Read(buffer, 0, buffer.Length);
+            //buffer에 담긴 바이트 데이터를 문자열로 변환 
+            string message = Encoding.UTF8.GetString(buffer, 0, bytes);
+            Console.WriteLine("클라이언트: " + message);
 
-            while (true)
-            {
-                TcpClient client = server.AcceptTcpClient();
-                Console.WriteLine("클라이언트 접속: " + client.Client.RemoteEndPoint);
-
-                Thread t = new Thread(() => HandleClient(client));
-                t.Start();
-            }
-        }
-
-        static void HandleClient(TcpClient client)
-        {
-            NetworkStream stream = client.GetStream();
-            byte[] buffer = new byte[1024];
-            int byteCount;
-
-            try
-            {
-                // 1. 첫 메시지는 닉네임
-                byteCount = stream.Read(buffer, 0, buffer.Length);
-                string nickname = Encoding.UTF8.GetString(buffer, 0, byteCount).Trim();
-
-                lock (lockObj)
-                {
-                    clients[client] = nickname;
-                }
-
-                Console.WriteLine($"[{nickname}] 님이 입장했습니다.");
-                Broadcast($"💬 [{nickname}] 님이 입장했습니다.", client);
-
-                // 2. 이후 메시지 처리
-                while ((byteCount = stream.Read(buffer, 0, buffer.Length)) != 0)
-                {
-                    string message = Encoding.UTF8.GetString(buffer, 0, byteCount).Trim();
-                    Console.WriteLine($"[{nickname}] {message}");
-                    Broadcast($"[{nickname}] {message}", client);
-                }
-            }
-            catch
-            {
-                // 연결 끊김
-            }
-            finally
-            {
-                lock (lockObj)
-                {
-                    if (clients.ContainsKey(client))
-                    {
-                        Console.WriteLine($"[{clients[client]}] 님이 퇴장했습니다.");
-                        Broadcast($"❌ [{clients[client]}] 님이 퇴장했습니다.", client);
-                        clients.Remove(client);
-                    }
-                }
-                client.Close();
-            }
-        }
-
-        static void Broadcast(string message, TcpClient sender)
-        {
-            byte[] data = Encoding.UTF8.GetBytes(message);
-            lock (lockObj)
-            {
-                foreach (var kvp in clients)
-                {
-                    TcpClient client = kvp.Key;
-                    if (client != sender)
-                    {
-                        try
-                        {
-                            client.GetStream().Write(data, 0, data.Length);
-                        }
-                        catch { }
-                    }
-                }
-            }
+            // 클라이언트에 응답 보내기
+            string response = "서버가 받았어요: " + message; //클라이언트에게 보낼 응답 메세지 문자열로 작성
+            byte[] responseData = Encoding.UTF8.GetBytes(response);//문자열을 바이트 배열로 변환
+            stream.Write(responseData, 0, responseData.Length);
         }
     }
 }

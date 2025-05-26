@@ -1,63 +1,31 @@
-﻿using System;
+﻿// Client.cs
+using System;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading;
 
-class ChatClient
+class Client
 {
-    static TcpClient client;
-    static NetworkStream stream;
-    static string nickname;
-
-    static void Main(string[] args)
+    static void Main()
     {
-        Console.Write("서버 IP를 입력하세요 (예: 127.0.0.1): ");
-        string serverIp = Console.ReadLine();
+        Console.Write("서버 IP 입력 (예: 127.0.0.1): ");
+        string serverIP = Console.ReadLine();
 
-        Console.Write("닉네임을 입력하세요: ");
-        nickname = Console.ReadLine();
+        TcpClient client = new TcpClient(serverIP, 8080);
+        NetworkStream stream = client.GetStream();
 
-        client = new TcpClient();
-        client.Connect(serverIp, 8080); // 서버에 연결
-
-        stream = client.GetStream();
-
-        // 닉네임 전송
-        byte[] nameData = Encoding.UTF8.GetBytes(nickname);
-        stream.Write(nameData, 0, nameData.Length);
-
-        // 메시지 수신 스레드 시작
-        Thread receiveThread = new Thread(ReceiveMessages);
-        receiveThread.Start();
-
-        // 메시지 전송 루프
         while (true)
         {
-            Console.Write("> ");
+            Console.Write("보낼 메시지: ");
             string message = Console.ReadLine();
 
-            if (!string.IsNullOrWhiteSpace(message))
-            {
-                byte[] data = Encoding.UTF8.GetBytes(message);
-                stream.Write(data, 0, data.Length);
+            byte[] data = Encoding.UTF8.GetBytes(message); //메세지를 utf-8로 저장하려면 바이트로 변환해야함
+            stream.Write(data, 0, data.Length); 
 
-                // 내 메시지를 로컬에도 표시
-                Console.WriteLine($"[나] {message}");
-            }
-        }
-    }
-
-    static void ReceiveMessages()
-    {
-        byte[] buffer = new byte[1024];
-        int byteCount;
-
-        while ((byteCount = stream.Read(buffer, 0, buffer.Length)) > 0)
-        {
-            string message = Encoding.UTF8.GetString(buffer, 0, byteCount);
-
-            // 입력 커서 위치 초기화 후 출력
-            Console.WriteLine("\n" + message);
+            // 서버로부터 응답 받기
+            byte[] responseBuffer = new byte[1024];
+            int responseBytes = stream.Read(responseBuffer, 0, responseBuffer.Length);
+            string response = Encoding.UTF8.GetString(responseBuffer, 0, responseBytes);
+            Console.WriteLine("서버 응답: " + response);
         }
     }
 }
