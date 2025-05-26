@@ -1,31 +1,79 @@
-﻿// Client.cs
-using System;
+﻿using System;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 
-class Client
+namespace ChattingClient
 {
-    static void Main()
+    class Program
     {
-        Console.Write("서버 IP 입력 (예: 127.0.0.1): ");
-        string serverIP = Console.ReadLine();
+        static TcpClient client;
+        static NetworkStream stream;
+        static string nickname;
 
-        TcpClient client = new TcpClient(serverIP, 8080);
-        NetworkStream stream = client.GetStream();
-
-        while (true)
+        static void Main()
         {
-            Console.Write("보낼 메시지: ");
-            string message = Console.ReadLine();
+            Console.Write("서버 IP 입력 (예: 127.0.0.1): ");
+            string serverIp = Console.ReadLine();
 
-            byte[] data = Encoding.UTF8.GetBytes(message); //메세지를 utf-8로 저장하려면 바이트로 변환해야함
-            stream.Write(data, 0, data.Length); 
+            Console.Write("사용할 닉네임 입력: ");
+            nickname = Console.ReadLine();
 
-            // 서버로부터 응답 받기
-            byte[] responseBuffer = new byte[1024];
-            int responseBytes = stream.Read(responseBuffer, 0, responseBuffer.Length);
-            string response = Encoding.UTF8.GetString(responseBuffer, 0, responseBytes);
-            Console.WriteLine("서버 응답: " + response);
+            try
+            {
+                client = new TcpClient();
+                client.Connect(serverIp, 9000);
+                stream = client.GetStream();
+
+                // 닉네임 먼저 전송
+                byte[] nameData = Encoding.UTF8.GetBytes(nickname);
+                stream.Write(nameData, 0, nameData.Length);
+
+                Console.WriteLine("서버에 연결되었습니다. 채팅을 시작하세요!");
+
+                // 메시지 수신 쓰레드 시작
+                Thread receiveThread = new Thread(ReceiveMessages);
+                receiveThread.Start();
+
+                // 메시지 전송 루프
+                while (true)
+                {
+                    string message = Console.ReadLine();
+                    if (string.IsNullOrWhiteSpace(message)) continue;
+
+                    byte[] data = Encoding.UTF8.GetBytes(message);
+                    stream.Write(data, 0, data.Length);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("오류 발생: " + ex.Message);
+            }
+        }
+
+        static void ReceiveMessages()
+        {
+            try
+            {
+                byte[] buffer = new byte[1024];
+                while (true)
+                {
+                    int bytes = stream.Read(buffer, 0, buffer.Length);
+                    if (bytes == 0) break;
+
+                    string message = Encoding.UTF8.GetString(buffer, 0, bytes);
+                    Console.WriteLine(message);
+                }
+            }
+            catch
+            {
+                Console.WriteLine("서버와의 연결이 끊어졌습니다.");
+            }
+            finally
+            {
+                stream.Close();
+                client.Close();
+            }
         }
     }
 }
