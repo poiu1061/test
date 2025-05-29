@@ -10,18 +10,20 @@ namespace Omok
     {
         static void Main(string[] args)
         {
+            //오목판의 사이즈 지정
             int size = 15;
             int[,] pan = new int[size, size];
+            //플레이어를 구별하기위한 도구
             int turn = 1;
 
 
 
             while (true)
             {
-
+                
                 Console.Clear();
                 int currentPlayer = (turn % 2 == 1) ? 1 : 2;
-
+                //오목판 만들기
                 for (int i = 0; i < size; i++)
                 {
                     for (int j = 0; j < size; j++)
@@ -34,34 +36,25 @@ namespace Omok
                         {
                             Console.Write("○ ");
                         }
-                        else if (pan[i, j] == 0)
+                        else
                         {
                             Console.Write(". ");
                         }
-                        turn++;
-
                     }
                     Console.WriteLine();
                 }
 
-                if (currentPlayer == 1)
-                {
-                    String[] dot = Console.ReadLine().Split();
-                    int a = int.Parse(dot[0]);
-                    int b = int.Parse(dot[1]);
-                    pan[a, b] = 1;
-                    if (pan[a, b] != 0) { Console.WriteLine("이미 돌이 놓인 자리입니다"); }
-                }
-                else if (currentPlayer == 2)
-                {
-                    String[] dot = Console.ReadLine().Split();
-                    int a = int.Parse(dot[0]);
-                    int b = int.Parse(dot[1]);
-                    pan[a, b] = 2;
-                    if (pan[a, b] != 0) { Console.WriteLine("이미 돌이 놓인 자리입니다"); }
-                }
 
+                //currentPlayer의 값으로 흑인지 백인지 차례구하기
+                Console.WriteLine(currentPlayer == 1 ? "흑"+"차례" : "백" + "차례");
+                string[] dot = Console.ReadLine().Split();
+                int a = int.Parse(dot[0]);
+                int b = int.Parse(dot[1]);
 
+                //2차원배열에 값넣어 좌표 계산하기
+                pan[a, b] = currentPlayer;
+
+                turn++;
 
             }
 
