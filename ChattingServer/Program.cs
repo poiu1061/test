@@ -10,14 +10,12 @@ namespace ChattingServer
     class Program
     {
         static TcpListener server;
-        //tcpClient의 소켓정보와 닉네임을 TcpClient와 String으로 리턴
         static Dictionary<TcpClient, string> clients = new Dictionary<TcpClient, string>();
-        //현재 여러 클라이언트의 스레드를 실행시키기 때문에 데이터 충돌이나 꼬임을 방지하기 위한 동기화 도구
         static object lockObj = new object();
 
         static void Main()
         {
-            server = new TcpListener(IPAddress.Any, 9000);
+            server = new TcpListener(IPAddress.Any, 9000);  
             server.Start();
             Console.WriteLine("서버 시작됨. 클라이언트 기다리는 중...");
 
@@ -41,12 +39,9 @@ namespace ChattingServer
 
             try
             {
-                // 1. 첫 메시지를 닉네임으로 사용
                 int nameBytes = stream.Read(buffer, 0, buffer.Length);
                 nickname = Encoding.UTF8.GetString(buffer, 0, nameBytes).Trim();
 
-                //a가 접속해서 데이터를 넣는중 b가 접속해서 데이터를 넣을때 dictionary가 동시 수정이 허용되지
-                //않기 때문에 오류 발생을 막는 역할
                 lock (lockObj)
                 {
                     clients.Add(client, nickname);
@@ -54,7 +49,6 @@ namespace ChattingServer
 
                 Console.WriteLine($"{nickname} 님이 접속했습니다.");
 
-                // 2. 채팅 수신 및 중계
                 while (true)
                 {
                     int bytes = stream.Read(buffer, 0, buffer.Length);

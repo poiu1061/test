@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{96701A2C-0F3B-44A0-9EAF-8D15BB982941}</ProjectGuid>
+    <ProjectGuid>{71E79888-3094-42C8-83CC-A7CD19846991}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ChattingServer</RootNamespace>
-    <AssemblyName>ChattingServer</AssemblyName>
+    <RootNamespace>TcpServPrac</RootNamespace>
+    <AssemblyName>TcpServPrac</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,10 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyServer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MyClients.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

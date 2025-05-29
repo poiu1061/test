@@ -25,7 +25,7 @@ namespace ChattingServer
             //while문을 통해 다시 클라이언트의 접속을 기다립니다.
             while (true)
             {
-                TcpClient acceptClient = listener.AcceptTcpClient();
+                MyClients acceptClient = listener.AcceptTcpClient();
 
                 ClientData clientData = new ClientData(acceptClient);
 
@@ -53,11 +53,11 @@ namespace ChattingServer
     {
         // 연결이 확인된 클라이언트를 넣어줄 클래스입니다.
         // readByteData는 stream데이터를 읽어올 객체입니다.
-        public TcpClient client { get; set; }
+        public MyClients client { get; set; }
         public byte[] readByteData { get; set; }
         public int clientNumber;
 
-        public ClientData(TcpClient client)
+        public ClientData(MyClients client)
         {
             this.client = client;
             this.readByteData = new byte[1024];
