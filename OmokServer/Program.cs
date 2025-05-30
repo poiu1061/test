@@ -26,6 +26,7 @@ namespace OmokServer
             while (true)
             {
                 TcpClient client = listener.AcceptTcpClient();
+              
                 lock (lockObj)
                 {
                     clients.Add(client);
@@ -41,7 +42,7 @@ namespace OmokServer
         {
             NetworkStream stream = client.GetStream();
             byte[] buffer = new byte[1024];
-
+            makePan();
             try
             {
                 while (true)
@@ -58,9 +59,33 @@ namespace OmokServer
 
                     lock (lockObj)
                     {
+                        // 🔸 클라이언트 차례 확인
+                        int currentPlayerIndex = (turn % 2 == 1) ? 0 : 1;
+
+                        // 접속 인원 체크
+                        if (clients.Count < 2)
+                        {
+                            SendMessage(client, "상대방이 접속하지 않았습니다.");
+                            makePan();
+
+                            continue;
+                        }
+
+                        TcpClient currentPlayerClient = clients[currentPlayerIndex];
+
+                        if (client != currentPlayerClient)
+                        {
+                            SendMessage(client, "당신의 차례가 아닙니다.");
+                            makePan();
+
+                            continue;
+                        }
+
                         if (pan[x, y] != 0)
                         {
                             SendMessage(client, "이미 놓인 자리입니다.");
+                            makePan();
+
                             continue;
                         }
 
@@ -73,6 +98,7 @@ namespace OmokServer
                             Broadcast((currentPlayer == 1 ? "흑 승" : "백 승"));
                             break;
                         }
+
                         Console.Clear();
                         makePan();
                     }
@@ -94,15 +120,14 @@ namespace OmokServer
             }
         }
 
+
         static void makePan()
         {
             StringBuilder sb = new StringBuilder();
             // 수정된 라인 (자릿수 맞추기)
-            sb.Append("    ");
-            for (int i = 0; i < size; i++)
-            {
-                sb.Append(i.ToString().PadLeft(2) + " ");
-            }
+            sb.Append("  1 2 3 4 5 6 7 8 9 10 11121314 y-> ");
+           
+            
             sb.AppendLine();
             for (int i = 0; i < size; i++)
             {
@@ -118,6 +143,8 @@ namespace OmokServer
                 }
                 sb.AppendLine();
             }
+            sb.AppendLine("x");
+            
             sb.AppendLine($"현재 차례: {(turn % 2 == 1 ? "흑" : "백")}");
             Broadcast(sb.ToString());
         }
