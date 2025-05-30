@@ -5,7 +5,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 
-namespace TcpChatServer
+namespace OmokServer
 {
     internal class Program
     {
@@ -41,7 +41,7 @@ namespace TcpChatServer
         {
             NetworkStream stream = client.GetStream();
             byte[] buffer = new byte[1024];
-            makePan();
+
             try
             {
                 while (true)
@@ -98,8 +98,11 @@ namespace TcpChatServer
         {
             StringBuilder sb = new StringBuilder();
             // 수정된 라인 (자릿수 맞추기)
-            sb.Append("  0 1 2 3 4 5 6 7 8 9 1011121314");
-            
+            sb.Append("    ");
+            for (int i = 0; i < size; i++)
+            {
+                sb.Append(i.ToString().PadLeft(2) + " ");
+            }
             sb.AppendLine();
             for (int i = 0; i < size; i++)
             {

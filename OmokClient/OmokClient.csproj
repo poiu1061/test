@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FDF89E18-8F97-470F-AFCF-CB6ACBF57CF7}</ProjectGuid>
+    <ProjectGuid>{B12D12CA-B78C-4A42-BE8A-4580A3A87913}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>TcpPrac</RootNamespace>
-    <AssemblyName>TcpPrac</AssemblyName>
+    <RootNamespace>OmokClient</RootNamespace>
+    <AssemblyName>OmokClient</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TcpCl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

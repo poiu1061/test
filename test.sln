@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice", "Caculator\Practice.csproj", "{C888DA21-CA2F-417C-8538-C8F823053871}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalPractice", "CalPractice\CalPractice.csproj", "{2A703E4B-1472-43E8-BA7B-CA2102B2C688}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C8D5274F-AC00-46C7-1F8D-E88E81087A52}"
@@ -32,16 +30,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcpServPrac", "TcpServPrac\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Omok", "Omok\Omok.csproj", "{A8C255B5-1634-4CB8-9680-38078CBCA3C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmokServer", "OmokServer\OmokServer.csproj", "{898D5BCF-0AFC-46C6-95DB-9E71A3F9D4F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmokClient", "OmokClient\OmokClient.csproj", "{B12D12CA-B78C-4A42-BE8A-4580A3A87913}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C888DA21-CA2F-417C-8538-C8F823053871}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C888DA21-CA2F-417C-8538-C8F823053871}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C888DA21-CA2F-417C-8538-C8F823053871}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C888DA21-CA2F-417C-8538-C8F823053871}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2A703E4B-1472-43E8-BA7B-CA2102B2C688}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2A703E4B-1472-43E8-BA7B-CA2102B2C688}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A703E4B-1472-43E8-BA7B-CA2102B2C688}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -86,6 +84,14 @@ Global
 		{A8C255B5-1634-4CB8-9680-38078CBCA3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8C255B5-1634-4CB8-9680-38078CBCA3C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8C255B5-1634-4CB8-9680-38078CBCA3C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{898D5BCF-0AFC-46C6-95DB-9E71A3F9D4F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{898D5BCF-0AFC-46C6-95DB-9E71A3F9D4F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{898D5BCF-0AFC-46C6-95DB-9E71A3F9D4F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{898D5BCF-0AFC-46C6-95DB-9E71A3F9D4F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B12D12CA-B78C-4A42-BE8A-4580A3A87913}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B12D12CA-B78C-4A42-BE8A-4580A3A87913}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B12D12CA-B78C-4A42-BE8A-4580A3A87913}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B12D12CA-B78C-4A42-BE8A-4580A3A87913}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

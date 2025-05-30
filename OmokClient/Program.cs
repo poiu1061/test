@@ -3,9 +3,9 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 
-namespace TcpPrac
+namespace OmokClient
 {
-    internal class TcpCl
+    internal class program
     {
         static void Main()
         {
