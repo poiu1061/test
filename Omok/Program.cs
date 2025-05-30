@@ -68,81 +68,207 @@ namespace Omok
                 pan[a, b] = currentPlayer;
 
 
-                //가로 이동 b
-                for (int i = 0; i < size; i++)
+                //for (int i = 0; i < size; i++)
+                //{
+                //    int count = 1;
+                //    for (int j = 1; j < size; j++)
+                //    {
+                //        if (pan[i, j] != 0 && pan[i, j] == pan[i, j - 1])
+                //        {
+                //            count++;
+                //        }
+                //        else
+                //        {
+                //            count = 1;
+                //        }
+
+                //        if (count == 5)
+                //        {
+                //            Console.WriteLine("You Win!");
+                //            return;
+                //        }
+                //    }
+                //}
+
+                ////세로 이동 a
+                //for (int i = 0; i < size; i++)
+                //{
+                //    int count = 1;
+                //    for (int j = 1; j < size; j++)
+                //    {
+                //        if (pan[j, i] != 0 && pan[j, i] == pan[j - 1, i])
+                //        {
+                //            count++;
+                //        }
+                //        else
+                //        {
+                //            count = 1;
+                //        }
+
+                //        if (count == 5)
+                //        {
+                //            Console.WriteLine("You Win!");
+                //            return;
+                //        }
+                //    }
+                //}
+                ////우하향 대각선 +b +a
+                //for (int i = 0; i <= size - 5; i++)
+                //{
+                //    for (int j = 0; j <= size - 5; j++)
+                //    {
+                //        int count = 1;
+                //        for (int k = 1; k < 5; k++)
+                //        {
+                //            if (pan[i + k, j + k] != 0 && pan[i + k, j + k] == pan[i + k - 1, j + k - 1])
+                //            {
+                //                count++;
+                //                if (count == 5)
+                //                {
+                //                    Console.WriteLine("You Win!");
+                //                    return;
+                //                }
+                //            }
+
+                //            else
+                //            {
+                //                break;
+                //            }
+                //        }
+                //    }
+                //}
+
+                ////좌하향 대각선 -b +a
+                //for(int i = 0; i<=size-5; i++)
+                //{
+                //    for(int j =4; j<size; j++)
+                //    {
+                //        int count = 1;
+                //        for(int k = 1; k<5; k++)
+                //        {
+                //            if (pan[i + k, j - k] != 0 && pan[i + k, j - k] == pan[i + k - 1, j - k + 1])
+                //            {
+                //                count++;
+                //                if (count == 5)
+                //                {
+                //                    Console.WriteLine("You Win!");
+                //                    return;
+                //                }
+                //            }
+                //            else
+                //            {
+                //                break;
+                //            }
+                //        }
+                //    }
+                //}
+                if (CheckWin(pan, size))
                 {
-                    int count = 1;
-                    for (int j = 1; j < size; j++)
-                    {
-                        if (pan[i, j] != 0 && pan[i, j] == pan[i, j - 1])
-                        {
-                            count++;
-                        }
-                        else
-                        {
-                            count = 1;
-                        }
-
-                        if (count == 5)
-                        {
-                            Console.WriteLine("You Win!");
-                            return;
-                        }
-                    }
+                    Console.WriteLine(currentPlayer == 1? "흑 승" : "백 승" );
+                    return;
                 }
-
-                //세로 이동 a
-                for (int i = 0; i < size; i++)
-                {
-                    int count = 1;
-                    for (int j = 1; j < size; j++)
-                    {
-                        if (pan[j, i] != 0 && pan[j, i] == pan[j - 1, i])
-                        {
-                            count++;
-                        }
-                        else
-                        {
-                            count = 1;
-                        }
-
-                        if (count == 5)
-                        {
-                            Console.WriteLine("You Win!");
-                            return;
-                        }
-                    }
-                }
-                //우하향 대각선 +b +a
-                for (int i = 0; i <= size - 5; i++)
-                {
-                    for (int j = 0; j <= size - 5; j++)
-                    {
-                        int count = 1;
-                        for (int k = 1; k < 5; k++)
-                        {
-                            if (pan[i + k, j + k] != 0 && pan[i + k, j + k] == pan[i + k - 1, j + k - 1])
-                            {
-                                count++;
-                                if (count == 5)
-                                {
-                                    Console.WriteLine("You Win!");
-                                    return;
-                                }
-                            }
-                            else
-                            {
-                                break; // 연속이 끊기면 바로 for 루프 탈출
-                            }
-                        }
-                    }
-                }
-
-                //하 대각선 -b +a
                 turn++;
             }
         }
+        //가로 이동 b
+        static bool CheckWin(int[,] pan, int size)
+        {
+            for (int i = 0; i < size; i++)
+            {
+                int count = 1;
+                for (int j = 1; j < size; j++)
+                {
+                    if (pan[i, j] != 0 && pan[i, j] == pan[i, j - 1])
+                    {
+                        count++;
+                    }
+                    else
+                    {
+                        count = 1;
+                    }
 
+                    if (count == 5)
+                    {
+                        return true;
+                    }
+                }
+            }
 
+            // 세로
+            for (int i = 0; i < size; i++)
+            {
+                int count = 1;
+                for (int j = 1; j < size; j++)
+                {
+                    if (pan[j, i] != 0 && pan[j, i] == pan[j - 1, i])
+                    {
+                        count++;
+                    }
+                    else
+                    {
+                        count = 1;
+                    }
+
+                    if (count == 5)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            // 우하향 대각선
+            for (int i = 0; i <= size - 5; i++)
+            {
+                for (int j = 0; j <= size - 5; j++)
+                {
+                    int count = 1;
+                    for (int k = 1; k < 5; k++)
+                    {
+                        if (pan[i + k, j + k] != 0 && pan[i + k, j + k] == pan[i + k - 1, j + k - 1])
+                        {
+                            count++;
+                        }
+                        else
+                        {
+                            break;
+                        }
+
+                        if (count == 5)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+
+            // 좌하향 대각선
+            for (int i = 0; i <= size - 5; i++)
+            {
+                for (int j = 4; j < size; j++)
+                {
+                    int count = 1;
+                    for (int k = 1; k < 5; k++)
+                    {
+                        if (pan[i + k, j - k] != 0 && pan[i + k, j - k] == pan[i + k - 1, j - k + 1])
+                        {
+                            count++;
+                        }
+                        else
+                        {
+                            break;
+                        }
+
+                        if (count == 5)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+
+            return false;
+        }
     }
+
 }
+
