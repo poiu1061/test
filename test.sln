@@ -34,6 +34,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmokServer", "OmokServer\Om
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmokClient", "OmokClient\OmokClient.csproj", "{B12D12CA-B78C-4A42-BE8A-4580A3A87913}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WFOmok", "WFOmok\WFOmok.csproj", "{F7AB504C-8491-447D-B0DA-69C1C69B33A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -92,6 +94,10 @@ Global
 		{B12D12CA-B78C-4A42-BE8A-4580A3A87913}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B12D12CA-B78C-4A42-BE8A-4580A3A87913}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B12D12CA-B78C-4A42-BE8A-4580A3A87913}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7AB504C-8491-447D-B0DA-69C1C69B33A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7AB504C-8491-447D-B0DA-69C1C69B33A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7AB504C-8491-447D-B0DA-69C1C69B33A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7AB504C-8491-447D-B0DA-69C1C69B33A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

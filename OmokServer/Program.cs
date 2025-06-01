@@ -42,7 +42,11 @@ namespace OmokServer
         {
             NetworkStream stream = client.GetStream();
             byte[] buffer = new byte[1024];
-            makePan();
+
+            foreach (var c in clients)
+            {
+                makePan(c);
+            }
             try
             {
                 while (true)
@@ -59,14 +63,25 @@ namespace OmokServer
 
                     lock (lockObj)
                     {
-                        // 🔸 클라이언트 차례 확인
+                      
                         int currentPlayerIndex = (turn % 2 == 1) ? 0 : 1;
+                        if(currentPlayerIndex == 0)
+                        {
+                            SendMessage(client,"당신은 흑돌입니다");
+                        }
+                        else
+                        {
+                            SendMessage(client, "당신은 백돌입니다");
+                        }
 
-                        // 접속 인원 체크
+
                         if (clients.Count < 2)
                         {
                             SendMessage(client, "상대방이 접속하지 않았습니다.");
-                            makePan();
+                            foreach (var c in clients)
+                            {
+                                makePan(c);
+                            }
 
                             continue;
                         }
@@ -76,7 +91,10 @@ namespace OmokServer
                         if (client != currentPlayerClient)
                         {
                             SendMessage(client, "당신의 차례가 아닙니다.");
-                            makePan();
+                            foreach (var c in clients)
+                            {
+                                makePan(c);
+                            }
 
                             continue;
                         }
@@ -84,7 +102,10 @@ namespace OmokServer
                         if (pan[x, y] != 0)
                         {
                             SendMessage(client, "이미 놓인 자리입니다.");
-                            makePan();
+                            foreach (var c in clients)
+                            {
+                                makePan(c);
+                            }
 
                             continue;
                         }
@@ -100,7 +121,10 @@ namespace OmokServer
                         }
 
                         Console.Clear();
-                        makePan();
+                        foreach (var c in clients)
+                        {
+                            makePan(c);
+                        }
                     }
                 }
             }
@@ -121,17 +145,21 @@ namespace OmokServer
         }
 
 
-        static void makePan()
+        static void makePan(TcpClient client)
         {
             StringBuilder sb = new StringBuilder();
-            // 수정된 라인 (자릿수 맞추기)
-            sb.Append("  1 2 3 4 5 6 7 8 9 10 11121314 y-> ");
-           
-            
-            sb.AppendLine();
+            int index = clients.IndexOf(client);
+            string yourStone = (index == 0) ? "당신은 흑돌입니다" : "당신은 백돌입니다";
+            sb.AppendLine(yourStone);
+
+            sb.Append("   ");
+            for (int i = 0; i < size; i++)
+                sb.Append(i < 10 ? i + " " : i + "");
+            sb.AppendLine(" y →");
+
             for (int i = 0; i < size; i++)
             {
-                sb.Append(i < 10 ? i + " " : i.ToString());
+                sb.Append(i < 10 ? " " + i + " " : i + " ");
                 for (int j = 0; j < size; j++)
                 {
                     if (pan[i, j] == 1)
@@ -143,11 +171,15 @@ namespace OmokServer
                 }
                 sb.AppendLine();
             }
+
             sb.AppendLine("x");
-            
             sb.AppendLine($"현재 차례: {(turn % 2 == 1 ? "흑" : "백")}");
-            Broadcast(sb.ToString());
+            SendMessage(client, sb.ToString());
+            
+
+
         }
+
 
         static void Broadcast(string message)
         {
